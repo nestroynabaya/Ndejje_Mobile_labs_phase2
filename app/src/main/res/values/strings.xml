@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MoMo Calculator</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="error_numbers_only">Numbers only please</string>
+</resources>
