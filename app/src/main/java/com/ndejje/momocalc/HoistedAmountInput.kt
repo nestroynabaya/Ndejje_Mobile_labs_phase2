@@ -7,18 +7,22 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.fillMaxWidth
 
 @Composable
 fun HoistedAmountInput(
-    amount: String,                   // State flows IN
-    onAmountChange: (String) -> Unit, // Events flow OUT
-    isError: Boolean = false
+    amount: String,
+    onAmountChange: (String) -> Unit,
+    isError: Boolean = false,
+    modifier: Modifier = Modifier   // ← new parameter with safe default
 ) {
-    Column {
+    Column(modifier = modifier) {        // ← modifier applied to outer Column
         TextField(
             value = amount,
             onValueChange = onAmountChange,
             isError = isError,
+            modifier = Modifier.fillMaxWidth(),
             label = { Text(stringResource(R.string.enter_amount)) }
         )
         if (isError) {
