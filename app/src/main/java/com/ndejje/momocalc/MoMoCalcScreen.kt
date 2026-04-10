@@ -14,12 +14,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.dimensionResource
 @Composable
 fun MoMoCalcScreen() {
     var amountInput by remember { mutableStateOf("") }
@@ -31,25 +31,33 @@ fun MoMoCalcScreen() {
 
     Column(
         modifier = Modifier
-            .fillMaxSize()              // occupy full screen — centering needs space
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center,         // vertical middle
-        horizontalAlignment = Alignment.CenterHorizontally // horizontal centre
+            .fillMaxSize()
+            .padding(dimensionResource(R.dimen.screen_padding)),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = stringResource(R.string.app_title),
             style = MaterialTheme.typography.headlineMedium,
-            textAlign = TextAlign.Center  // centres text within its own bounding box
+            textAlign = TextAlign.Center
         )
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(
+            modifier = Modifier.height(
+                dimensionResource(R.dimen.spacing_large)
+            )
+        )
 
         HoistedAmountInput(
             amount = amountInput,
             onAmountChange = { amountInput = it },
             isError = isError,
-            modifier = Modifier.fillMaxWidth()  // input stretches full width
+            modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(
+            modifier = Modifier.height(
+                dimensionResource(R.dimen.spacing_medium)
+            )
+        )
 
         Text(
             text = stringResource(R.string.fee_label, formattedFee),
@@ -59,8 +67,8 @@ fun MoMoCalcScreen() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun MoMoCalcPreview() {
-    MaterialTheme { MoMoCalcScreen() }
-}
+    @Preview(showBackground = true)
+    @Composable
+    fun MoMoCalcPreview() {
+        MaterialTheme { MoMoCalcScreen() }
+    }
