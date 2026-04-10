@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import com.ndejje.momocalc.ui.theme.MoMoTopBar
 import com.ndejje.momocalc.ui.theme.MoMoAppTheme
 
 class MainActivity : ComponentActivity() {

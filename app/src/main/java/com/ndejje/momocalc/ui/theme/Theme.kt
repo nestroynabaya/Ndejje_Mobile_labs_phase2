@@ -6,9 +6,10 @@ import androidx.compose.runtime.Composable
 import com.ndejje.momocalc.MoMoTypography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.ui.tooling.preview.Preview
 import android.content.res.Configuration
 import com.ndejje.momocalc.MoMoCalcScreen
-import androidx.compose.ui.tooling.preview.Preview
+
 
 private val LightColorScheme = lightColorScheme(
     primary         = NavyBlue,
