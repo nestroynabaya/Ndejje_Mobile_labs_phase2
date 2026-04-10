@@ -20,8 +20,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.dimensionResource
+
 @Composable
-fun MoMoCalcScreen() {
+fun MoMoCalcScreen(modifier: Modifier = Modifier) {
+    // ... state declarations unchanged ...
     var amountInput by remember { mutableStateOf("") }
 
     val numericAmount = amountInput.toDoubleOrNull()
@@ -30,12 +32,14 @@ fun MoMoCalcScreen() {
     val formattedFee = "UGX %,.0f".format(fee)
 
     Column(
-        modifier = Modifier
+        modifier = modifier             // ← receives innerPadding from Scaffold
             .fillMaxSize()
             .padding(dimensionResource(R.dimen.screen_padding)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // ... content unchanged ...
+
         Text(
             text = stringResource(R.string.app_title),
             style = MaterialTheme.typography.headlineMedium,
